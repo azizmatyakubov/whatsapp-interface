@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 500px;
+  height: 700px;
   transform: translateY(-100px);
   border-radius: 5px;
   background-color: white;
@@ -27,4 +27,32 @@
 
 body {
   background-color: rgb(214, 216, 218) !important;
+}
+
+.login {
+  width: 90%;
+}
+
+.addImage {
+  height: 270px;
+  width: 270px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+
+  border-radius: 500px;
+  background-color: white;
+  border: 5px dashed #d9d9d9;
+}
+
+.formDir {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .formDir {
+    flex-direction: column;
+  }
 }

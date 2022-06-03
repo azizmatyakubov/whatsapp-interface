@@ -1,7 +1,6 @@
 import React from "react";
-
 import Login from "./components/Login/login.jsx";
-import NavBar from "./components/NavBar/NavBar.jsx";
+import Register from "./components/Register.jsx";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -12,7 +11,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="*" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>
