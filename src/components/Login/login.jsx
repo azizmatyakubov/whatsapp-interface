@@ -10,7 +10,7 @@ class Login extends React.Component {
         <NavBar />
         <Container>
           <div className="main-container">
-            <div className="login">
+            <div className="login1">
               <Form className="text-center">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Telephone Number</Form.Label>
