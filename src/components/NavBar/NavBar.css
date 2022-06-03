@@ -1,0 +1,19 @@
+#NavBar {
+  display: flex;
+  flex-direction: row;
+
+  height: 243px;
+  background-color: rgb(0, 168, 132);
+  color: rgb(0, 168, 132);
+}
+
+.logo {
+  height: 39px;
+  width: 39px;
+  margin-bottom: 16px;
+  margin-left: 20px;
+}
+.logo-text {
+  display: flex;
+  flex-direction: row;
+}
