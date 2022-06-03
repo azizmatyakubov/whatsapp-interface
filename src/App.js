@@ -1,40 +1,24 @@
-import React from "react"
-import logo from "./logo.svg"
-import { Counter } from "./features/counter/Counter"
-import "./App.css"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap-icons/font/bootstrap-icons.css"
+import React from "react";
+import Login from "./components/Login/login.jsx";
+import Register from "./components/Register/Register.jsx";
+import NotFound from "./components/Not_Found/Not_Found.jsx";
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a className="App-link" href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
-            React
-          </a>
-          <span>, </span>
-          <a className="App-link" href="https://redux.js.org/" target="_blank" rel="noopener noreferrer">
-            Redux
-          </a>
-          <span>, </span>
-          <a className="App-link" href="https://redux-toolkit.js.org/" target="_blank" rel="noopener noreferrer">
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a className="App-link" href="https://react-redux.js.org/" target="_blank" rel="noopener noreferrer">
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  )
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
-export default App
+export default App;
