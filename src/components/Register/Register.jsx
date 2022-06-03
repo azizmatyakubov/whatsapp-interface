@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar/NavBar";
 import { Container, Form } from "react-bootstrap";
-import "./Register.css";
+import "../../components/Register/Register.css";
 
 class Register extends React.Component {
   render() {
@@ -15,13 +15,18 @@ class Register extends React.Component {
                 <div className="row">
                   <Form className="formDir  text-center">
                     <div className="col-md-6 mx-auto text-center">
-                      <button
-                        className="addImage"
-                        src="../Data/plusM.jpg"
-                        alt=""
+                      <input
+                        type="file"
+                        name="file"
+                        id="file"
+                        class="inputfile"
                       />
+                      <label className="addImage" for="file">
+                        {" "}
+                        Add Image
+                      </label>
                     </div>
-                    <div className="col-md-6 mx-auto ">
+                    <div className="col-md-6 mx-auto  ">
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Username</Form.Label>
                         <Form.Control type="text" placeholder="Username" />

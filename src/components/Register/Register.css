@@ -37,11 +37,16 @@ body {
   height: 270px;
   width: 270px;
   margin-bottom: 25px;
-  margin-top: 25px;
-
+  margin-top: -40px;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding-right: 25px;
   border-radius: 500px;
   background-color: white;
   border: 5px dashed #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .formDir {
@@ -55,4 +60,15 @@ body {
   .formDir {
     flex-direction: column;
   }
+  .addImage {
+    margin-top: 25px;
+  }
+}
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
