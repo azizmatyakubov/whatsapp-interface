@@ -10,7 +10,7 @@ class NotFound extends React.Component {
         <Container>
           <div className="main-container">
             <img
-              src={require("../../Data/404-error.jpg")}
+              src={require("../../Data/404-error.png")}
               alt="Not Found img"
             />
           </div>
