@@ -29,18 +29,24 @@ class Register extends React.Component {
                       </label>
                       <input id="Bfile" type="file" />
                     </div>
-                    <div className="col-md-6 mx-auto  ">
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <div className="col-md-6 mx-auto  formContainer">
+                      <Form.Group
+                        className="formSize mb-3 "
+                        controlId="formBasicEmail"
+                      >
                         <Form.Label>Username</Form.Label>
                         <Form.Control type="text" placeholder="Username" />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Group
+                        className="formSize mb-3 "
+                        controlId="formBasicEmail"
+                      >
                         <Form.Label>Telephone Number</Form.Label>
                         <Form.Control type="tel" placeholder="Number" />
                       </Form.Group>
 
                       <Form.Group
-                        className=" mb-3"
+                        className=" formSize mb-3  "
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Password</Form.Label>
