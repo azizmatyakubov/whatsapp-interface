@@ -27,7 +27,7 @@ const NewChatColumn = () => {
               <i className="bi bi-search"></i>
             </InputGroup.Text>) : 
             (<InputGroup.Text className="bg-white">
-              <i className="bi bi-arrow-left-short"></i>
+              <i className="bi bi-arrow-left-short "></i>
             </InputGroup.Text>)}
 
             <FormControl className="px-4 rounded " placeholder="Search contacts" onFocus={()=>setSearchBarActivated(!searchBarActivated)}/>
@@ -45,13 +45,14 @@ const NewChatColumn = () => {
 
 
         <div className="mt-3 " >{/* .map with every letter with starting contact letter */}
-        <span className="mb-2"> A</span>
+        <span className="mb-2"> A </span>
         <div className="xDivisor"></div>
         </div>
 
         <div className="mt-3">{/* .map call Giorgio's component for every contact, with the prop to down, see contact "status/intro"  */}
-        <span className="mb-2">Component</span>
+        <span className="mb-2"> Contact Component</span>
         <div className="xDivisor"></div>
+
         </div>
       </div>
     </>
