@@ -1,3 +1,5 @@
+/** @format */
+
 .main-container {
   display: flex;
   flex-direction: row;
@@ -94,12 +96,40 @@
   height: 23px;
   width: 23px;
   color: rgba(84, 101, 111);
+  cursor: pointer;
 }
 .icons2 {
   height: 25px;
   width: 25px;
+  cursor: pointer;
 }
 .icons3 {
   height: 23px;
   width: 23px;
+  cursor: pointer;
+}
+
+.mx-4.bi-arrow-left-short {
+  cursor: pointer;
+  font-size: 35px;
+  font-weight: bolder;
+}
+
+.greenBg {
+  background-color: rgb(0, 168, 132);
+}
+
+.rounded-people{
+  font-size: 20px;
+  border-radius: 50px;
+  color: white;
+
+}
+
+.bi-arrow-left-short{
+  font-size: 16px;
+  font-weight: bold;
+color: rgb(0, 168, 132);
+
+  
 }
