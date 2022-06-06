@@ -38,18 +38,6 @@
   border-radius: 5px 0px 0px 5px;
 }
 
-.data-columnAlberto {
-  display: flex;
-  
-  width: 30%;
-  height: 100%;
-  background-color: rgb(240, 242, 245);
-  min-width: 400px;
-  max-width: 400px;
-  border-radius: 5px 0px 0px 5px;
-}
-
-
 .chat-column {
   display: flex;
   flex-direction: column;
@@ -116,13 +104,12 @@
   height: 23px;
   width: 23px;
   color: rgba(84, 101, 111);
-
   scale: 0.8;
   cursor: pointer;
 }
 .icons2 {
-  height: 25px;
-  width: 25px;
+  height: 23px;
+  width: 23px;
   scale: 0.8;
   cursor: pointer;
 }
