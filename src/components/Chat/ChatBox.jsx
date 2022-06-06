@@ -1,5 +1,7 @@
 import React from "react";
 import ChatBackground from "./ChatBackground.jsx";
+import User from "../User/User.jsx";
+import UserChat from "../UserChat/UserChat.jsx";
 
 import "./ChatBox.css";
 
@@ -12,10 +14,14 @@ class Chat extends React.Component {
           <div className="data-column">
             <div className="user">
               <div className="first-tab">
-                <div className="col-6">
-                  <img id="Pimg" src="" alt="Pimg" />
+                <div className=" col-8">
+                  <img
+                    id="Pimg"
+                    src={require("../../Data/whatsapp-logo.png")}
+                    alt="Pimg"
+                  />
                 </div>
-                <div className="Lborder col-6">
+                <div className="Lborder col-4">
                   <svg
                     className="icons1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -24,29 +30,78 @@ class Chat extends React.Component {
                     <path d="M222.7 32.15C227.7 49.08 218.1 66.9 201.1 71.94C121.8 95.55 64 169.1 64 255.1C64 362 149.1 447.1 256 447.1C362 447.1 448 362 448 255.1C448 169.1 390.2 95.55 310.9 71.94C293.9 66.9 284.3 49.08 289.3 32.15C294.4 15.21 312.2 5.562 329.1 10.6C434.9 42.07 512 139.1 512 255.1C512 397.4 397.4 511.1 256 511.1C114.6 511.1 0 397.4 0 255.1C0 139.1 77.15 42.07 182.9 10.6C199.8 5.562 217.6 15.21 222.7 32.15V32.15z" />
                   </svg>
                   <svg
-                    className="icons2"
+                    classname="icons2"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-chat-left-text-fill"
+                    viewBox="0 0 16 16"
                   >
-                    <path d="M256 31.1c-141.4 0-255.1 93.12-255.1 208c0 49.62 21.35 94.98 56.97 130.7c-12.5 50.37-54.27 95.27-54.77 95.77c-2.25 2.25-2.875 5.734-1.5 8.734c1.249 3 4.021 4.766 7.271 4.766c66.25 0 115.1-31.76 140.6-51.39c32.63 12.25 69.02 19.39 107.4 19.39c141.4 0 255.1-93.13 255.1-207.1S397.4 31.1 256 31.1zM127.1 271.1c-17.75 0-32-14.25-32-31.1s14.25-32 32-32s32 14.25 32 32S145.7 271.1 127.1 271.1zM256 271.1c-17.75 0-31.1-14.25-31.1-31.1s14.25-32 31.1-32s31.1 14.25 31.1 32S273.8 271.1 256 271.1zM383.1 271.1c-17.75 0-32-14.25-32-31.1s14.25-32 32-32s32 14.25 32 32S401.7 271.1 383.1 271.1z" />
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" />
                   </svg>
+
                   <svg
                     className="icons3"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 320 512"
+                    width="16"
+                    height="16"
+                    class="bi bi-three-dots-vertical"
+                    viewBox="0 0 16 16"
                   >
-                    <path d="M9.375 329.4c12.51-12.51 32.76-12.49 45.25 0L128 402.8V32c0-17.69 14.31-32 32-32s32 14.31 32 32v370.8l73.38-73.38c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-128 128c-12.5 12.5-32.75 12.5-45.25 0l-128-128C-3.125 362.1-3.125 341.9 9.375 329.4z" />
+                    <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                   </svg>
                 </div>
               </div>
             </div>
-            <div className="search"></div>
-            <div className="list"></div>
+            <div className="search">
+              <div className="searchTab-1 col-3">
+                <svg
+                  className="icons3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z" />
+                </svg>
+              </div>
+              <div className="col-9">
+                <input
+                  className="search-input"
+                  type="text"
+                  placeholder="Search or start new chat"
+                ></input>
+              </div>
+            </div>
+            <div className="list">
+              <User />
+            </div>
           </div>
-          <div className="chat-column">
-            <div className="chat-header"></div>
-            <div className="chat-body"></div>
-          </div>
+          {/* <div className="chat-column">
+            <div className="chat-header">
+              <img
+                src={require("../../Data/whatsapp chat image.jpg")}
+                alt="whatsapp"
+              />
+            </div>
+            <div className="chat-body">
+              <div>
+                <h1 className="chat-title">WhatsApp Web</h1>
+              </div>
+              <div className="chat-text">
+                Now send and receive messages without keeping your phone online.
+                <br /> Use WhatsApp on up to 4 linked devices and 1 phone at the
+                same time.
+              </div>
+              <hr></hr>
+              <div className="chat-text">
+                Make calls from desktop with WhatsApp for Windows.{" "}
+                <a className="chat-a" href="https://www.whatsapp.com/download">
+                  Get it here.
+                </a>{" "}
+              </div>
+            </div>
+          </div> */}
+          <UserChat />
         </div>
       </>
     );
