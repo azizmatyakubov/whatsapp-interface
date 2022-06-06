@@ -1,6 +1,7 @@
 import React from "react";
 import ChatBackground from "./ChatBackground.jsx";
 import { Container, Row } from "react-bootstrap";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
 import "./ChatBox.css";
 
@@ -17,9 +18,9 @@ class Chat extends React.Component {
                   <img id="Pimg" src="" alt="Pimg" />
                 </div>
                 <div className="col-6">
-                  {/* <svg></svg>
-                  <svg></svg> 
-                  <svg></svg> insert here the icons for the first bar  */}
+                  <FontAwesomeIcon icon="fa-solid fa-arrows-spin" />
+                  <svg></svg>
+                  <svg></svg>
                 </div>
               </div>
             </div>
