@@ -25,7 +25,7 @@ class UserChat extends React.Component {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-search"
+                className="bi bi-search"
                 viewBox="0 0 16 16"
               >
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -35,7 +35,7 @@ class UserChat extends React.Component {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-three-dots-vertical"
+                className="bi bi-three-dots-vertical"
                 viewBox="0 0 16 16"
               >
                 <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
@@ -53,7 +53,7 @@ class UserChat extends React.Component {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-emoji-smile"
+                  className="bi bi-emoji-smile"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -64,7 +64,7 @@ class UserChat extends React.Component {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-paperclip"
+                  className="bi bi-paperclip"
                   viewBox="0 0 16 16"
                 >
                   <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z" />
@@ -79,7 +79,7 @@ class UserChat extends React.Component {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-mic-fill"
+                  className="bi bi-mic-fill"
                   viewBox="0 0 16 16"
                 >
                   <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
