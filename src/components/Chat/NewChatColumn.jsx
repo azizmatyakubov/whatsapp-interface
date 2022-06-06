@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import { InputGroup, FormControl } from "react-bootstrap"
 const NewChatColumn = () => {
-  const [searchBarActivated, setSearchBarActivated] = useState(true)
+  const [isSearchBarActive, setisSearchBarActive] = useState(true)
 
   return (
 
@@ -22,35 +22,38 @@ const NewChatColumn = () => {
           center search bar
           onClick arrow change state "isNewChat" to FALSE=>  redux */}
           <InputGroup className="mb-3">
-            { searchBarActivated ? 
+            { isSearchBarActive ? 
             (<InputGroup.Text className="bg-white">
               <i className="bi bi-search"></i>
-            </InputGroup.Text>) : 
+            </InputGroup.Text>) 
+            : 
             (<InputGroup.Text className="bg-white">
               <i className="bi bi-arrow-left-short "></i>
-            </InputGroup.Text>)}
+            </InputGroup.Text>)
+            }
 
-            <FormControl className="px-4 rounded " placeholder="Search contacts" onFocus={()=>setSearchBarActivated(!searchBarActivated)}/>
+            <FormControl className="rounded" placeholder="Search contacts" onFocus={()=>setisSearchBarActive(!isSearchBarActive)}/>
           </InputGroup>
         </div>
 
-        <div className="mt-2" >{/* logo people ,greenbackground. "NewGroup" */}
+        <div className="mt-2 d-flex flex-row w-100" >{/* logo people ,greenbackground. "NewGroup" */}
 
-        <div className="greenBg rounded-people d-flex ">
+        <div className="greenBg rounded-people d-flex " >
           <i className="bi bi-people-fill d-flex justify-content-center m-auto"></i>
           </div>
-              <span> New group</span>
-              <div className="xDivisor"></div>              
+              <p className=""> New group</p>
+              
         </div>
+              <div className="xDivisor"></div>              
 
 
-        <div className="mt-3 " >{/* .map with every letter with starting contact letter */}
-        <span className="mb-2"> A </span>
+        <div className="mt-3 w-100 " >{/* .map with every letter with starting contact letter */}
+        <p className="mb-2"> dynamic "A" </p>
         <div className="xDivisor"></div>
         </div>
 
-        <div className="mt-3">{/* .map call Giorgio's component for every contact, with the prop to down, see contact "status/intro"  */}
-        <span className="mb-2"> Contact Component</span>
+        <div className="mt-3 w-100">{/* .map call Giorgio's component for every contact, with the prop to down, see contact "status/intro"  */}
+        <p className="mb-2"> Contact Component</p>
         <div className="xDivisor"></div>
 
         </div>
