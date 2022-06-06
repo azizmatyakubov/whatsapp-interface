@@ -31,6 +31,8 @@
   width: 30%;
   height: 100%;
   background-color: rgb(99, 99, 99);
+
+  border-radius: 5px 0px 0px 5px;
 }
 
 .chat-column {
@@ -41,12 +43,15 @@
   width: 70%;
   height: 100%;
   background-color: white;
+  border-radius: 5px;
 }
 
 .user {
   height: 59px;
   width: 100%;
   background-color: rgb(112, 112, 112);
+
+  border-radius: 5px 0px 0px 0px;
 }
 
 .search {
@@ -63,10 +68,11 @@
   display: flex;
   flex-direction: row;
 
+  border-radius: 5px 0px 0px 0px;
   justify-content: space-between;
   height: 59px;
   width: 100%;
-  background-color: rgb(129, 125, 125);
+  background-color: rgb(109, 107, 107);
 }
 
 #Pimg {
@@ -74,4 +80,26 @@
   width: 25px;
   border-radius: 50%;
   margin-left: 10px;
+}
+
+.Lborder {
+  border-radius: 5px 0px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.icons1 {
+  height: 23px;
+  width: 23px;
+  color: rgba(84, 101, 111);
+}
+.icons2 {
+  height: 25px;
+  width: 25px;
+}
+.icons3 {
+  height: 23px;
+  width: 23px;
 }
