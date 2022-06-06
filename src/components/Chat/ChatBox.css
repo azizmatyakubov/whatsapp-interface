@@ -121,15 +121,22 @@
 
 .rounded-people{
   font-size: 20px;
-  border-radius: 50px;
+  border-radius: 50%;
   color: white;
-
+  width: 65px;
+  height: 65px;
 }
+
 
 .bi-arrow-left-short{
   font-size: 16px;
   font-weight: bold;
-color: rgb(0, 168, 132);
+  color: rgb(0, 168, 132);
+}
 
-  
+.xDivisor{
+  height:1px;
+  width:100%;
+  background-color: rgba(105, 102, 102, 0.39);
+
 }

@@ -17,7 +17,8 @@ const NewChatColumn = () => {
         </div>
 
         <div>
-          {/*  bigger input
+          {/* 
+           bigger input
           center search bar
           onClick arrow change state "isNewChat" to FALSE=>  redux */}
           <InputGroup className="mb-3">
@@ -33,18 +34,24 @@ const NewChatColumn = () => {
           </InputGroup>
         </div>
 
-        <div className="border-bottom mt-2" >{/* logo people ,greenbackground. "NewGroup" */}
-        <i className="bi bi-people-fill mx-2 greenBg rounded-people p-3"></i>
+        <div className="mt-2" >{/* logo people ,greenbackground. "NewGroup" */}
+
+        <div className="greenBg rounded-people d-flex ">
+          <i className="bi bi-people-fill d-flex justify-content-center m-auto"></i>
+          </div>
               <span> New group</span>
+              <div className="xDivisor"></div>              
         </div>
 
 
-        <div className="border-bottom mt-3" >{/* .map with every letter with starting contact letter */}
-        <span> A</span>
+        <div className="mt-3 " >{/* .map with every letter with starting contact letter */}
+        <span className="mb-2"> A</span>
+        <div className="xDivisor"></div>
         </div>
 
-        <div className="border-bottom mt-3">{/* .map call Giorgio's component for every contact, with the prop to down, see contact "status/intro"  */}
-        <span className="">Component</span>
+        <div className="mt-3">{/* .map call Giorgio's component for every contact, with the prop to down, see contact "status/intro"  */}
+        <span className="mb-2">Component</span>
+        <div className="xDivisor"></div>
         </div>
       </div>
     </>
