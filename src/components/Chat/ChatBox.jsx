@@ -1,9 +1,9 @@
-import React from "react";
-import ChatBackground from "./ChatBackground.jsx";
-import { Container, Row } from "react-bootstrap";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import React from "react"
+import ChatBackground from "./ChatBackground.jsx"
+import { Container, Row } from "react-bootstrap"
+import FontAwesomeIcon from "@fortawesome/react-fontawesome"
 
-import "./ChatBox.css";
+import "./ChatBox.css"
 
 class Chat extends React.Component {
   render() {
@@ -33,8 +33,8 @@ class Chat extends React.Component {
           </div>
         </div>
       </>
-    );
+    )
   }
 }
 
-export default Chat;
+export default Chat
