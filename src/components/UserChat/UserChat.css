@@ -98,3 +98,24 @@
 #chat:focus {
   outline: none;
 }
+
+.chat-message-user {
+  background-color: white;
+  width: 20%;
+  height: 50px;
+  border-radius: 10px;
+  margin: 25px;
+}
+
+.chat-message-other {
+  background-color: rgb(243, 243, 243);
+}
+
+.chat-message-user {
+  background-color: rgb(243, 243, 243);
+}
+
+.chat-message {
+  margin-left: 5px;
+  margin-top: 3px;
+}
