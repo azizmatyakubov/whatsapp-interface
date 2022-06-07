@@ -1,18 +1,23 @@
-import { useState } from "react"
-
+import { useSelector, useDispatch } from 'react-redux'
 import { InputGroup, FormControl } from "react-bootstrap"
+import { changeisNewChat,changeisSearchBarActive } from '../../slices/chat/chatSlice'
+
+
 const NewChatColumn = () => {
-  const [isSearchBarActive, setisSearchBarActive] = useState(true)
+  const isSearchBarActive = useSelector((state) => state.chat.isSearchBarActive)
+  const isNewChat = useSelector((state) => state.chat.isNewChat)
+  const dispatch = useDispatch()
+
 
   return (
 
-    /* responsiveness */
     <>
       <div className="data-column bg-white">
         <div className="text-white greenBg pt-5 w-100">
           {/* navbar with arrow state to change "isNewChat" to FALSE to return back=>redux */}
-          <i className="bi bi-arrow-left-short mx-4 text-white align-middle"></i>
-          <h4 className="d-inline-block align-middle mt-1 ">New chat</h4>
+          <i className="bi bi-arrow-left-short mx-4 text-white align-middle" onClick={()=>dispatch(changeisNewChat(!isNewChat))}
+ ></i>
+          <h4 className="d-inline-block align-middle mt-1 " >New chat</h4>
           {/* manually vertical align arrow , so dirt*/}
         </div>
 
@@ -29,7 +34,7 @@ const NewChatColumn = () => {
             </InputGroup.Text>)
             }
 
-            <FormControl className="rounded " placeholder="Search contacts" onFocus={()=>setisSearchBarActive(!isSearchBarActive)}/>
+            <FormControl className="rounded " placeholder="Search contacts" onFocus={()=>dispatch(changeisSearchBarActive(!isSearchBarActive))}/>
           </InputGroup>
         </div>
 

@@ -3,12 +3,17 @@ import NewChatColumn from "./NewChatColumn.jsx"
 import UserChat from "../UserChat/UserChat.jsx"
 import User from "../User/User.jsx"
 import { Dropdown } from "react-bootstrap"
-import { useState } from "react"
+import { useSelector, useDispatch } from 'react-redux'
+import { changeisNewChat } from '../../slices/chat/chatSlice'
+
 
 import "./ChatBox.css"
 
+
 const Chat = () => {
-  const [isNewChat, setIsNewChat] = useState(false)
+
+  const isNewChat = useSelector((state) => state.chat.isNewChat)
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -44,7 +49,7 @@ const Chat = () => {
                     height="16"
                     fill="currentColor"
                     viewBox="0 0 16 16"
-                    onClick={() => setIsNewChat(!isNewChat)}
+                    onClick={() => dispatch(changeisNewChat(!isNewChat))}
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" />
                   </svg>

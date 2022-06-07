@@ -5,20 +5,38 @@ const userSlice = createSlice({
   initialState: {
     _id:"",
     phoneNumber:"",
-    name: "",
-    avatar:"",
+    userName: "",
+    avatar:"https://png.pngtree.com/png-vector/20210604/ourlarge/pngtree-gray-avatar-placeholder-png-image_3416697.jpg",
     about:"",
+    token:"",
   },
   reducers: {
-    // here I'll put the logic to CHANGE the name
 
-    changeProperty: (state, action) => {
-      // ALWAYS in these reducers cases you have to return the new value for the slice's state
+    changeUserName: (state, action) => {
       return {
         ...state,
-        
-        name: action.payload,
-        // action.payload is the argument you're invoking this action with from a component!
+        userName: action.payload,
+      }
+    },
+
+    changeAvatar: (state, action) => {
+      return {
+        ...state,
+        avatar: action.payload,
+      }
+    },
+
+    changeAbout: (state, action) => {
+      return {
+        ...state,
+        about: action.payload,
+      }
+    },
+
+    changeToken: (state, action) => {
+      return {
+        ...state,
+        token: action.payload,
       }
     },
 
@@ -26,4 +44,4 @@ const userSlice = createSlice({
 })
 
 export default userSlice.reducer
-export const { changeProperty } = userSlice.actions
+export const { changeUserName,changeAvatar,changeAbout,changeToken } = userSlice.actions
