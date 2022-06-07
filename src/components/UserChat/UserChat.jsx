@@ -4,7 +4,7 @@ import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 
 const UserChat = () => {
-  const isUser = false;
+  const isUser = true;
 
   return (
     <>
@@ -48,11 +48,13 @@ const UserChat = () => {
           <Container>
             {isUser ? (
               <div className="chat-message-user">
-                <h5 className="chat-message">User</h5>
+                <h5 className="chat-message">Usaaaaaaaaaaaaaaaaaaaaaaaaaer</h5>
               </div>
             ) : (
               <div className="chat-message-other">
-                <h5 className="chat-message">lol</h5>
+                <h5 className="chat-message">
+                  loaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </h5>
               </div>
             )}
           </Container>
