@@ -10,17 +10,14 @@ const NewChatColumn = () => {
     <>
       <div className="data-column bg-white">
         <div className="text-white greenBg pt-5 w-100">
-          {/* navbar with arrow state to change NEWCHAT to FALSE to return back=>redux */}
+          {/* navbar with arrow state to change "isNewChat" to FALSE to return back=>redux */}
           <i className="bi bi-arrow-left-short mx-4 text-white align-middle"></i>
           <h4 className="d-inline-block align-middle mt-1 ">New chat</h4>
           {/* manually vertical align arrow , so dirt*/}
         </div>
 
-        <div className="">
-          {/* 
-           bigger input
-          center search bar
-          onClick arrow change state "isNewChat" to FALSE=>  redux */}
+        <div>
+         
           <InputGroup className="mb-3">
             { isSearchBarActive ? 
             (<InputGroup.Text className="bg-white">
