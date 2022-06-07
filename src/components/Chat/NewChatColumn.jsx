@@ -16,7 +16,7 @@ const NewChatColumn = () => {
           {/* manually vertical align arrow , so dirt*/}
         </div>
 
-        <div>
+        <div className="">
           {/* 
            bigger input
           center search bar
@@ -32,16 +32,16 @@ const NewChatColumn = () => {
             </InputGroup.Text>)
             }
 
-            <FormControl className="rounded" placeholder="Search contacts" onFocus={()=>setisSearchBarActive(!isSearchBarActive)}/>
+            <FormControl className="rounded " placeholder="Search contacts" onFocus={()=>setisSearchBarActive(!isSearchBarActive)}/>
           </InputGroup>
         </div>
 
         <div className="mt-2 d-flex flex-row w-100" >{/* logo people ,greenbackground. "NewGroup" */}
 
-        <div className="greenBg rounded-people d-flex " >
+        <div className="greenBg rounded-people d-flex mb-2" >
           <i className="bi bi-people-fill d-flex justify-content-center m-auto"></i>
           </div>
-              <p className=""> New group</p>
+              <p>New group</p>
               
         </div>
               <div className="xDivisor"></div>              
