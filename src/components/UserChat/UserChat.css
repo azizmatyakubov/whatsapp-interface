@@ -109,6 +109,7 @@
 
 .chat-message-other {
   background-color: rgb(243, 243, 243);
+  display: flex;
 }
 
 .chat-message-user {
@@ -120,4 +121,8 @@
 .chat-message {
   margin-left: 5px;
   margin-top: 3px;
+}
+
+#chatBox {
+  display: flex;
 }

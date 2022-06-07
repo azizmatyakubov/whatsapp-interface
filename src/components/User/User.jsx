@@ -1,41 +1,32 @@
 import React from "react";
+import { useState } from "react";
 import "./User.css";
 
-class User extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      isClicked: false,
-    };
-  }
+function User(props) {
+  const [isClicked, setIsClicked] = useState(false);
 
-  render() {
-    return (
-      <>
-        <div
-          className="list-main"
-          onClick={() => this.setState({ isClicked: true })}
-        >
-          <div className="col-2">
-            <img
-              className="User-img"
-              src={require("../../Data/whatsapp-logo.png")}
-              alt="placeholder"
-            ></img>
+  return (
+    <>
+      <div className="list-main" onClick={() => setIsClicked(false)}>
+        <div className="col-2">
+          <img
+            className="User-img"
+            src={require("../../Data/whatsapp-logo.png")}
+            alt="placeholder"
+          ></img>
+        </div>
+        <div id="user-border" className="col-10">
+          <div className="User-data1">
+            <h5> {props.name} </h5>
+            <p>8:50 pm</p>
           </div>
-          <div id="user-border" className="col-10">
-            <div className="User-data1">
-              <h5>Gioacco</h5>
-              <p>8:50 pm</p>
-            </div>
-            <div className="User-data2">
-              <p>I'll meet you there</p>
-            </div>
+          <div className="User-data2">
+            <p>{props.lastMessage}</p>
           </div>
         </div>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
 }
 
 export default User;

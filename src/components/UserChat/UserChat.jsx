@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+
 import "./UserChat.css";
 import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 
 const UserChat = () => {
-  const isUser = true;
-
+  const [isUser, setIsUser] = useState(true);
+  //messages--------------------------
   return (
     <>
       <div className="User-Chat">
@@ -45,7 +46,7 @@ const UserChat = () => {
           </div>
         </div>
         <div className="chat-body">
-          <Container>
+          <Container id="chatBox">
             {isUser ? (
               <div className="chat-message-user">
                 <h5 className="chat-message">Usaaaaaaaaaaaaaaaaaaaaaaaaaer</h5>

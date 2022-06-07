@@ -1,28 +1,52 @@
-import ChatBackground from "./ChatBackground.jsx"
-import NewChatColumn from "./NewChatColumn.jsx"
-import UserChat from "../UserChat/UserChat.jsx"
-import User from "../User/User.jsx"
-import { Dropdown } from "react-bootstrap"
-import { useSelector, useDispatch } from 'react-redux'
-import { changeisNewChat } from '../../slices/chat/chatSlice'
-
-
-import "./ChatBox.css"
-
+import ChatBackground from "./ChatBackground.jsx";
+import NewChatColumn from "./NewChatColumn.jsx";
+import UserChat from "../UserChat/UserChat.jsx";
+import User from "../User/User.jsx";
+import { useState } from "react";
+import { Dropdown } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { changeisNewChat } from "../../slices/chat/chatSlice";
+import "./ChatBox.css";
+import { useEffect } from "react";
 
 const Chat = () => {
+  const isNewChat = useSelector((state) => state.chat.isNewChat);
+  const dispatch = useDispatch();
 
-  const isNewChat = useSelector((state) => state.chat.isNewChat)
-  const dispatch = useDispatch()
+  const param = useParams();
+
+  const [chats, setChats] = useState([]);
+
+  useEffect(() => {
+    getChat();
+  }, []);
+
+  const getChat = async () => {
+    try {
+      const res = await fetch("https://whatsapp-v1-api.herokuapp.com/chats", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }),
+        data = await res.json();
+      if (data) {
+        setChats(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
-    <ChatBackground />
-    <div className="main-container">
-      {isNewChat ? (
-        <NewChatColumn />
-      ) : (
-        
+      <ChatBackground />
+      <div className="main-container">
+        {isNewChat ? (
+          <NewChatColumn />
+        ) : (
           <div className="data-column">
             <div className="user">
               <div className="first-tab">
@@ -56,21 +80,24 @@ const Chat = () => {
 
                   <Dropdown>
                     <Dropdown.Toggle variant="transparent">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16">
-  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-</svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="23"
+                        height="23"
+                        fill="currentColor"
+                        className="bi bi-three-dots"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                      </svg>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">
-                        New group
-                      </Dropdown.Item>
+                      <Dropdown.Item href="#/action-1">New group</Dropdown.Item>
                       <Dropdown.Item href="#/action-2">
                         Starred messages
                       </Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">
-                        Settings
-                      </Dropdown.Item>
+                      <Dropdown.Item href="#/action-3">Settings</Dropdown.Item>
                       <Dropdown.Item href="#/action-4">Log out</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
@@ -97,18 +124,29 @@ const Chat = () => {
             </div>
             <div className="list">
               <User />
+              {chats.map((chat) => {
+                console.log(chat);
+                return (
+                  <User
+                    key={chat._id}
+                    id={chat._id}
+                    name={chat.name}
+                    lastMessage={
+                      chat.messages.length
+                        ? chat.messages[chat.messages.length - 1].text
+                        : "No messages"
+                    }
+                  />
+                );
+              })}
             </div>
           </div>
+        )}
 
-        )},
-        
         <UserChat />
-        
-      
-    </div>
-  </>
-  )
-      }
+      </div>
+    </>
+  );
+};
 
-
-export default Chat
+export default Chat;
