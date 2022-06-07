@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { useState } from "react";
 
-import { InputGroup, FormControl } from "react-bootstrap"
+import { InputGroup, FormControl } from "react-bootstrap";
+import User from "../User/User.jsx";
 const NewChatColumn = () => {
-  const [isSearchBarActive, setisSearchBarActive] = useState(true)
+  const [isSearchBarActive, setisSearchBarActive] = useState(true);
 
   return (
-
     /* responsiveness */
     <>
       <div className="data-column bg-white">
@@ -16,50 +16,56 @@ const NewChatColumn = () => {
           {/* manually vertical align arrow , so dirt*/}
         </div>
 
-        <div>
+        <div className="search1 ">
           {/* 
            bigger input
           center search bar
           onClick arrow change state "isNewChat" to FALSE=>  redux */}
-          <InputGroup className="mb-3">
-            { isSearchBarActive ? 
-            (<InputGroup.Text className="bg-white">
-              <i className="bi bi-search"></i>
-            </InputGroup.Text>) 
-            : 
-            (<InputGroup.Text className="bg-white">
-              <i className="bi bi-arrow-left-short "></i>
-            </InputGroup.Text>)
-            }
+          <InputGroup className=" ">
+            {isSearchBarActive ? (
+              <InputGroup.Text id="no-border" className=" bg-white  ">
+                <i className="bi bi-search"></i>
+              </InputGroup.Text>
+            ) : (
+              <InputGroup.Text id="no-border1" className="bg-white">
+                <i id="no-border2" className="bi bi-arrow-left-short "></i>
+              </InputGroup.Text>
+            )}
 
-            <FormControl className="rounded" placeholder="Search contacts" onFocus={()=>setisSearchBarActive(!isSearchBarActive)}/>
+            <FormControl
+              id="search-new"
+              className="rounded "
+              placeholder="Search contacts"
+              onFocus={() => setisSearchBarActive(!isSearchBarActive)}
+              onBlur={() => setisSearchBarActive(!isSearchBarActive)}
+            />
           </InputGroup>
         </div>
 
-        <div className="mt-2 d-flex flex-row w-100" >{/* logo people ,greenbackground. "NewGroup" */}
+        <div className="new-group">
+          {/* logo people ,greenbackground. "NewGroup" */}
 
-        <div className="greenBg rounded-people d-flex " >
-          <i className="bi bi-people-fill d-flex justify-content-center m-auto"></i>
+          <div id="new-group" className="greenBg rounded-people d-flex ">
+            <i className="bi bi-people-fill d-flex justify-content-center m-auto"></i>
           </div>
-              <p className=""> New group</p>
-              
+          <p className="mt-2"> New group</p>
         </div>
-              <div className="xDivisor"></div>              
-
-
-        <div className="mt-3 w-100 " >{/* .map with every letter with starting contact letter */}
-        <p className="mb-2"> dynamic "A" </p>
-        <div className="xDivisor"></div>
-        </div>
-
-        <div className="mt-3 w-100">{/* .map call Giorgio's component for every contact, with the prop to down, see contact "status/intro"  */}
-        <p className="mb-2"> Contact Component</p>
         <div className="xDivisor"></div>
 
+        <div className="mt-3 w-100 ">
+          {/* .map with every letter with starting contact letter */}
+          <p id="p">#</p>
+          <div className="xDivisor"></div>
+        </div>
+
+        <div className="mt-3 w-100">
+          {/* .map call Giorgio's component for every contact, with the prop to down, see contact "status/intro"  */}
+
+          <User />
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default NewChatColumn
+export default NewChatColumn;

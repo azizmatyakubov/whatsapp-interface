@@ -9,7 +9,7 @@ class Register extends React.Component {
       <>
         <NavBar />
         <Container>
-          <div className="main-container">
+          <div id="main-container2">
             <div className="login">
               <div className="container">
                 <div className="row">

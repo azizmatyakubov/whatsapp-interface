@@ -1,9 +1,9 @@
-.main-container {
+#main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 500px;
+  height: 800px;
   transform: translateY(-100px);
   border-radius: 5px;
   background-color: white;

@@ -23,7 +23,7 @@ class User extends React.Component {
               alt="placeholder"
             ></img>
           </div>
-          <div className="col-10">
+          <div id="user-border" className="col-10">
             <div className="User-data1">
               <h5>Gioacco</h5>
               <p>8:50 pm</p>
