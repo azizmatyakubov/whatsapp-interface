@@ -31,6 +31,12 @@ const UserChat = () => {
   };
 
   //messages--------------------------
+
+  // I was not able to retrieve the data trought redux store, the idea is to retrive the data,
+  // it needs to be mapped at line 86.
+  // this same map need to be applied to data list, that display the amount of user.
+  //as mow there I couldn't find  a way to iplemet a new chat window onClick on a new user.
+
   return (
     <>
       <div className="User-Chat">
@@ -78,25 +84,23 @@ const UserChat = () => {
         <div className="chat-body">
           <Container id="chatBox">
             {/* //conver time with moment .js for time of messages  */}
-            {chats.map((chat, i) => {
-              return (
-                <>
-                  {isUser ? (
-                    <div className="chat-message-user">
-                      <h5 className="chat-message">asd</h5>
-                      <span className="chat-time-other">6:00pm</span>
-                    </div>
-                  ) : (
-                    <div className="chat-message-other">
-                      <h5 className="chat-message">
-                        loaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                      </h5>
-                      <span className="chat-time-user">8:34pm</span>
-                    </div>
-                  )}
-                </>
-              );
-            }, [])}
+            return (
+            <>
+              {isUser ? (
+                <div className="chat-message-user">
+                  <h5 className="chat-message">asd</h5>
+                  <span className="chat-time-other">6:00pm</span>
+                </div>
+              ) : (
+                <div className="chat-message-other">
+                  <h5 className="chat-message">
+                    loaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  </h5>
+                  <span className="chat-time-user">8:34pm</span>
+                </div>
+              )}
+            </>
+            );
           </Container>
         </div>
         <div className="chat-bottom">
