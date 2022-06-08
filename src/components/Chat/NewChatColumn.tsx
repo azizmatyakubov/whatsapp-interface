@@ -6,11 +6,17 @@ import {
   changeisSearchBarActive,
 } from "../../slices/chat/chatSlice";
 
+interface chatState{
+  chat: {
+  isNewChat:boolean,
+    isSearchBarActive:boolean,
+}
+}
+
 const NewChatColumn = () => {
-  const isSearchBarActive = useSelector(
-    (state) => state.chat.isSearchBarActive
-  );
-  const isNewChat = useSelector((state) => state.chat.isNewChat);
+
+  const isSearchBarActive = useSelector((state:chatState) => state.chat.isSearchBarActive);
+  const isNewChat = useSelector((state:chatState) => state.chat.isNewChat);
   const dispatch = useDispatch();
 
   return (

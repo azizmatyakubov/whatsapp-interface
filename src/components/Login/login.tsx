@@ -1,15 +1,15 @@
 import React from "react";
-import { useState } from "react";
+import { useState ,FormEvent} from "react";
 
 import { Container, Form } from "react-bootstrap";
 import NavBar from "../NavBar/NavBar";
 import "./login.css";
 
 function Login() {
-  const [telephone, setTelephone] = useState();
-  const [password, setPassword] = useState();
+  const [telephone, setTelephone] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:FormEvent) => {
     e.preventDefault();
 
     let body = {

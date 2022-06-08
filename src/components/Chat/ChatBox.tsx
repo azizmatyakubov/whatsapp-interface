@@ -5,17 +5,24 @@ import User from "../User/User.jsx";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { changeisNewChat } from "../../slices/chat/chatSlice";
 import "./ChatBox.css";
 import { useEffect } from "react";
 // import { io } from 'socket.io-client'
 
+interface chatState{
+  chat: {
+  isNewChat:boolean,
+    isSearchBarActive:boolean,
+}
+}
+
 const Chat = () => {
-  const isNewChat = useSelector((state) => state.chat.isNewChat);
+  const isNewChat = useSelector((state:chatState) => state.chat.isNewChat);
   const dispatch = useDispatch();
 
-  const param = useParams();
+  // const param = useParams();
 
   const [chats, setChats] = useState([]);
 

@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import { Container, Form } from "react-bootstrap";
-import { useState } from "react";
+import { useState ,FormEvent} from "react";
 import "../../components/Register/Register.css";
 
 function Register() {
@@ -9,7 +9,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:FormEvent) => {
     e.preventDefault();
 
     let body = {
@@ -47,7 +47,7 @@ function Register() {
                     id="imageContainer"
                     className="col-md-6 mx-auto text-center"
                   >
-                    <label for="Bfile">
+                    <label htmlFor="Bfile">
                       <div className="addImage">
                         <img
                           src={require("../../Data/plusM.jpg")}
