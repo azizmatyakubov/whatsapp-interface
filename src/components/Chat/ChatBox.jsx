@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import { changeisNewChat } from "../../slices/chat/chatSlice";
 import "./ChatBox.css";
 import { useEffect } from "react";
+// import { io } from 'socket.io-client'
 
 const Chat = () => {
   const isNewChat = useSelector((state) => state.chat.isNewChat);
