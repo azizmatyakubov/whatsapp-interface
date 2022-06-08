@@ -34,7 +34,6 @@ const SocketTry = () => {
             )
             setLoggedIn(true)
             // newConnection is an event sent automatically from the server
-            // to all the clients that are ALREADY loggedin when a new user
             // logs in on its own
             socket.on('newConnection', () => {
               console.log('a new client just connected!')
