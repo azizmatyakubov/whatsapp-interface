@@ -49,13 +49,17 @@ const UserChat = () => {
           <Container id="chatBox">
             {isUser ? (
               <div className="chat-message-user">
-                <h5 className="chat-message">Usaaaaaaaaaaaaaaaaaaaaaaaaaer</h5>
+                <h5 className="chat-message">
+                  Usaaaaaassssssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaer
+                </h5>
+                <span className="chat-time-other">6:00pm</span>
               </div>
             ) : (
               <div className="chat-message-other">
                 <h5 className="chat-message">
                   loaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                 </h5>
+                <span className="chat-time-user">8:34pm</span>
               </div>
             )}
           </Container>

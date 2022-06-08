@@ -5,7 +5,7 @@ import User from "../User/User.jsx";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+
 import { changeisNewChat } from "../../slices/chat/chatSlice";
 import "./ChatBox.css";
 import { useEffect } from "react";
@@ -13,9 +13,6 @@ import { useEffect } from "react";
 const Chat = () => {
   const isNewChat = useSelector((state) => state.chat.isNewChat);
   const dispatch = useDispatch();
-
-  const param = useParams();
-
   const [chats, setChats] = useState([]);
 
   useEffect(() => {

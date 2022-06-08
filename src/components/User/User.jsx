@@ -15,7 +15,7 @@ function User(props) {
             alt="placeholder"
           ></img>
         </div>
-        <div id="user-border" className="col-10">
+        <div className="coluser-border col-10">
           <div className="User-data1">
             <h5> {props.name} </h5>
             <p>8:50 pm</p>
