@@ -1,11 +1,35 @@
 import React, { useState } from "react";
-
+import { useEffect } from "react";
 import "./UserChat.css";
 import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 
 const UserChat = () => {
-  const [isUser, setIsUser] = useState(true);
+  const isUser = chats._id;
+  const [chats, setChats] = useState([]);
+
+  useEffect(() => {
+    getChat();
+  }, []);
+
+  const getChat = async () => {
+    try {
+      const res = await fetch("https://whatsapp-v1-api.herokuapp.com/chats", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }),
+        data = await res.json();
+      if (data) {
+        setChats(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   //messages--------------------------
   return (
     <>
@@ -19,8 +43,14 @@ const UserChat = () => {
             />
           </div>
           <div className="chat-username">
-            <h6 id="chat-username">Gioacco</h6>
-            <p id="chat-connection">Last seen today at 12:43 pm</p>
+            {chats.map((chat) => {
+              return (
+                <>
+                  <h6 id="chat-username"> {chat.members[0].username}</h6>
+                  <p id="chat-connection">{chat.members[0].lastOnline}</p>
+                </>
+              );
+            })}
           </div>
           <div className="chat-header-icons col-1">
             <svg
@@ -47,21 +77,26 @@ const UserChat = () => {
         </div>
         <div className="chat-body">
           <Container id="chatBox">
-            {isUser ? (
-              <div className="chat-message-user">
-                <h5 className="chat-message">
-                  Usaaaaaassssssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaer
-                </h5>
-                <span className="chat-time-other">6:00pm</span>
-              </div>
-            ) : (
-              <div className="chat-message-other">
-                <h5 className="chat-message">
-                  loaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                </h5>
-                <span className="chat-time-user">8:34pm</span>
-              </div>
-            )}
+            {/* //conver time with moment .js for time of messages  */}
+            {chats.map((chat, i) => {
+              return (
+                <>
+                  {isUser ? (
+                    <div className="chat-message-user">
+                      <h5 className="chat-message">asd</h5>
+                      <span className="chat-time-other">6:00pm</span>
+                    </div>
+                  ) : (
+                    <div className="chat-message-other">
+                      <h5 className="chat-message">
+                        loaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                      </h5>
+                      <span className="chat-time-user">8:34pm</span>
+                    </div>
+                  )}
+                </>
+              );
+            }, [])}
           </Container>
         </div>
         <div className="chat-bottom">

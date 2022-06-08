@@ -45,6 +45,8 @@ function Login() {
 
       console.log(data);
       localStorage.setItem("token", data.accessToken);
+    } else {
+      alert("Invalid credentials");
     }
   };
 
@@ -93,15 +95,16 @@ function Login() {
                 >
                   Google
                 </button>
-                <button
-                  className="LoginButton1"
-                  onClick={handleRegister}
-                  type="submit"
-                >
-                  Register
-                </button>
               </div>
             </Form>
+            <div className="register-container">
+              <a
+                id="a"
+                href="https://whatsapp-v1-api.herokuapp.com/users/googleLogin"
+              >
+                <button className="LoginButton2">Register</button>
+              </a>
+            </div>
           </div>
         </div>
       </Container>
