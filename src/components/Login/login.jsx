@@ -48,8 +48,8 @@ function Login() {
 
       console.log(data);
       localStorage.setItem("token", data.accessToken);
-      localStorage.setItem("telephone",telephone);
       dispatch(changePhoneNumber(telephone));
+      localStorage.setItem("telephone",telephone);
     } else {
       alert("Invalid credentials");
     }

@@ -34,7 +34,7 @@ const Settings =()=>{
         })
         if(response.ok){
             const data = await response.json();
-            dispatch(changeUsername(data.userName));
+            dispatch(changeUsername(data.username));
             dispatch(changeAvatar(data.avatar));
             
             }
@@ -102,7 +102,7 @@ const Settings =()=>{
                           </label>
                           <input id="Bfile" type="file" />
                         </div>
-                        <div className="col-md-6 mx-auto  formContainer">
+                        <div className="col-md-6 mx-auto formContainer">
                           <Form.Group
                             className="formSize mb-3 "
                             controlId="formBasicEmail"
@@ -115,7 +115,7 @@ const Settings =()=>{
                             />
                           </Form.Group>
                           <Form.Group
-                            className="formSize mb-3 "
+                            className="formSize mb-3"
                             controlId="formBasicAvatar"
                           >
                             <Form.Label>Avatar</Form.Label>
@@ -127,7 +127,7 @@ const Settings =()=>{
                           </Form.Group>
       
                           <Form.Group
-                            className=" formSize mb-3  "
+                            className=" formSize mb-3"
                             controlId="formBasicPassword"
                           >
                             <Form.Label>Password</Form.Label>

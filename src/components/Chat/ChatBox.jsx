@@ -103,7 +103,7 @@ const Chat = () => {
                       <Dropdown.Item href="#/action-2">
                         Starred messages
                       </Dropdown.Item>
-                      <Dropdown.Item href="#/action-3" onClick={navigate("/settings")}>Settings</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3" onClick={()=>navigate("/settings")}>Settings</Dropdown.Item>
                       <Dropdown.Item href="#/action-4" onClick={handleLogOut}>
                         Log out
                       </Dropdown.Item>
