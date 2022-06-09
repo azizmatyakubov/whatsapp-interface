@@ -1,11 +1,14 @@
-import React from "react";
 import { useState } from "react";
-
 import { Container, Form } from "react-bootstrap";
 import NavBar from "../NavBar/NavBar";
 import "./login.css";
+import {changePhoneNumber} from "../../slices/user/userSlice";
+import {useSelector,useDispatch} from "react-redux";
 
 function Login() {
+  const phoneNumber = useSelector((state) => state.user.phoneNumber);
+  const dispatch = useDispatch();
+
   const [telephone, setTelephone] = useState();
   const [password, setPassword] = useState();
 
@@ -45,6 +48,8 @@ function Login() {
 
       console.log(data);
       localStorage.setItem("token", data.accessToken);
+      dispatch(changePhoneNumber(telephone));
+      localStorage.setItem("telephone",telephone);
     } else {
       alert("Invalid credentials");
     }

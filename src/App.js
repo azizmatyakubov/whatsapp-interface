@@ -3,6 +3,7 @@ import Login from "./components/Login/login.jsx";
 import Register from "./components/Register/Register.jsx";
 import NotFound from "./components/Not_Found/Not_Found.jsx";
 import ChatBox from "./components/Chat/ChatBox.jsx";
+import Settings from "./components/Settings/Settings.jsx";
 
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -20,6 +21,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/Chat" element={<ChatBox />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

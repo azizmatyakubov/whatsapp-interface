@@ -9,7 +9,7 @@ const userSlice = createSlice({
     avatar:"",
     // about:"",
     token:"",
-    password:"",
+    // password:"",
   },
   reducers: {
 
@@ -20,6 +20,13 @@ const userSlice = createSlice({
       }
     },
 
+    changePhoneNumber: (state, action) => {
+      return {
+        ...state,
+        phoneNumber: action.payload,
+      }
+    },
+
     changeAvatar: (state, action) => {
       return {
         ...state,
@@ -27,12 +34,12 @@ const userSlice = createSlice({
       }
     },
 
-    changePassword: (state, action) => {
-      return {
-        ...state,
-        password: action.payload,
-      }
-    },
+    // changePassword: (state, action) => {
+    //   return {
+    //     ...state,
+    //     password: action.payload,
+    //   }
+    // },
 
     // changeToken: (state, action) => {
     //   return {
@@ -45,4 +52,4 @@ const userSlice = createSlice({
 })
 
 export default userSlice.reducer
-export const { changeUserName,changeAvatar,changeAbout,changeToken } = userSlice.actions
+export const { changeUsername,changePassword,changeAvatar,changeAbout,changePhoneNumber } = userSlice.actions
