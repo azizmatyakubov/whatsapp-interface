@@ -2,7 +2,8 @@ import NavBar from "../NavBar/NavBar";
 import { Container, Form } from "react-bootstrap";
 // import "../../components/Settings/Settings.css";
 import { useDispatch,useSelector } from "react-redux";
-import { changeUsername, changeAvatar, setPassword } from "../../redux/actions/userActions";
+import { changeUsername, changeAvatar } from "../../slices/user/userSlice";
+import { useEffect } from "react";
 
 
 const Settings =()=>{
@@ -16,23 +17,26 @@ const Settings =()=>{
 
     const dispatch = useDispatch();
 
-      
-    
-    //add phoneNumber as a heading 
+      useEffect(() => {
+          getUser()
+      },[])
+   
     
     const getUser = async () => {
 
         try {
-            const response = await fetch(`https://whatsapp-v1-api.herokuapp.com/users`, { // which endoint its ME ?
-                method: "GET",
+            const response = await fetch(`https://whatsapp-v1-api.herokuapp.com/users/me`, {
                 headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
                 "Content-Type": "application/json",
                 },
 
         })
         if(response.ok){
             const data = await response.json();
-//set each of the values to the state
+            dispatch(changeUsername(data.userName));
+            dispatch(changeAvatar(data.avatar));
+            
             }
          }catch(error){
         console.log(error)
@@ -72,7 +76,8 @@ const Settings =()=>{
         }
 
         };
-
+ 
+    //add phoneNumber as a heading 
         return (
           <>
             <NavBar />
@@ -86,7 +91,7 @@ const Settings =()=>{
                           id="imageContainer"
                           className="col-md-6 mx-auto text-center"
                         >
-                          <label for="Bfile">
+                          <label htmlFor="Bfile">
                             <div className="addImage">
                               <img
                                 src={require("../../Data/plusM.jpg")}
@@ -105,20 +110,18 @@ const Settings =()=>{
                             <Form.Label>Username</Form.Label>
                             <Form.Control
                               type="text"
-                              placeholder="Username"
-                              value={username}
+                              placeholder="Set a new user name"
                               onChange={(e) => dispatch(changeUsername(e.target.value))}
                             />
                           </Form.Group>
                           <Form.Group
                             className="formSize mb-3 "
-                            controlId="formBasicEmail"
+                            controlId="formBasicAvatar"
                           >
                             <Form.Label>Avatar</Form.Label>
                             <Form.Control
                               type="file"
-                              placeholder="Avatar"
-                              value={avatar}
+                              placeholder="Set a new avatar"
                               onChange={(e) => dispatch(changeAvatar(e.target.value))}
                             />
                           </Form.Group>
@@ -130,9 +133,8 @@ const Settings =()=>{
                             <Form.Label>Password</Form.Label>
                             <Form.Control
                               type="password"
-                              placeholder="Password"
-                              value={password}
-                              onChange={(e) => dispatch(setPassword(e.target.value))}
+                              placeholder="Set a new password"
+                            //   onChange={(e) => dispatch(changePassword(e.target.value))}
                             />
                           </Form.Group>
                           <Form.Group
