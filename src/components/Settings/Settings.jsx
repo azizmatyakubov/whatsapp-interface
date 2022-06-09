@@ -17,7 +17,29 @@ const Settings =()=>{
     const dispatch = useDispatch();
 
       
+    
+    //add phoneNumber as a heading 
+    
+    const getUser = async () => {
+
+        try {
+            const response = await fetch(`https://whatsapp-v1-api.herokuapp.com/users`, { // which endoint its ME ?
+                method: "GET",
+                headers: {
+                "Content-Type": "application/json",
+                },
+
+        })
+        if(response.ok){
+            const data = await response.json();
+//set each of the values to the state
+            }
+         }catch(error){
+        console.log(error)
+        }
+    }
       
+
         const handleSubmit = async (e) => {
           e.preventDefault();
       
@@ -28,29 +50,29 @@ const Settings =()=>{
             avatar: avatar,
             // about: about,
           };
-
-
-        //   HERE "GET" to retrieve the user and fill states using redux
-
-        //add phoneNumber as a heading 
-
-          const response = await fetch(
+        try {
+            
+            const response = await fetch(
             "https://whatsapp-v1-api.herokuapp.com/users/account",
             {
-              method: "PUT",
-              headers: {
+                method: "PUT",
+                headers: {
                 "Content-Type": "application/json",
-              },
-      
-              body: JSON.stringify(body),
+                },
+
+                body: JSON.stringify(body),
             }
-          );
-          if (response.status === 201) {
+            );
+            if (response.status === 201) {
             const data = await response.json();
             window.location.href = "/chat";
-          }
+            }
+        } catch (error) {
+            console.log(error);
+        }
+
         };
-      
+
         return (
           <>
             <NavBar />
