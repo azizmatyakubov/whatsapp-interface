@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
  const NavBar=()=>{
-   
+
   const navigate = useNavigate()
  
     return (
@@ -22,6 +22,7 @@ import { useNavigate } from "react-router-dom";
                   src={require("../../Data/whatsapp-logo.png")}
                   alt="logo"
                   onClick={() => navigate("/login")}
+                  style={{ cursor: "pointer" }}
                 />
 
                 <p id="text" className="navbar-brand text-light ">
