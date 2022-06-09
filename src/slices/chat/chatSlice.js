@@ -3,32 +3,33 @@ import { createSlice } from '@reduxjs/toolkit'
 const chatSlice = createSlice({
   name: 'chat',
   initialState: {
-    isNewChat:false,
-    isSearchBarActive:false,
-    activeChatId: null,
+    // isNewChat:false,
+    // isSearchBarActive:false,
+    activeChatId: false,
   },
   reducers: {
 
-    changeisNewChat: (state, action) => {
-      return {
-        ...state,
-        isNewChat: action.payload,
-      }
-    },
-
-    changeisSearchBarActive: (state, action) => {
-      return {
-        ...state,
-        isSearchBarActive: action.payload,
-      }
-    },
-
     setActiveChatId: (state, action) => {
       return {
-        ...state,
         activeChatId: action.payload,
       }
-    },
+    }
+
+    // changeisNewChat: (state, action) => {
+    //   return {
+    //     ...state,
+    //     isNewChat: action.payload,
+    //   }
+    // },
+
+    // changeisSearchBarActive: (state, action) => {
+    //   return {
+    //     ...state,
+    //     isSearchBarActive: action.payload,
+    //   }
+    // },
+
+
   },
 })
 

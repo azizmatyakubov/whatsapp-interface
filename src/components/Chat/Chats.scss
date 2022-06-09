@@ -1,0 +1,120 @@
+.chats-wrapper {
+    width: 30vw;
+    height: 100vh;
+    background-color: white;
+    
+}
+
+.chats-header {
+    background-color: #f0f2f5;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+}
+
+.chats-header-left {
+    width: 10vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    i {
+        font-size: 6.5vh;
+        color: #3b3b3b;
+        margin-left: 1rem;
+    }
+}
+
+
+
+.chats-header-right {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.chats-search {
+    width: 100%;
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.chats-search-wrapper {
+    background-color: #f0f2f5;
+    width: 95%;
+    height: 90%;
+    margin: auto;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.4rem;
+
+    i {
+        font-size: 2.5vh;
+        color: #3b3b3b;
+        margin-left: 0.5rem;
+    }
+
+    input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: transparent;
+        font-size: 2.5vh;
+        margin-left: 2rem;
+        color: #3b3b3b;
+        padding: 0.5rem;
+    }
+}
+
+
+.singleChat-wrapper {
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0.7rem;  
+    margin-bottom: 0.2rem;
+}
+
+.singleChat-image {
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.singleChat-name {
+    flex-grow: 1;
+    font-size: 2.5vh;
+    font-weight: 400;
+    color: #555555;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #e0e0e0;
+    
+    h4 {
+        font-size: 3vh;
+        color: #000000;
+        font-weight: 400;
+        margin-top: 0.7rem;
+        margin-bottom: 0.2rem;
+    }
+}
+
+.active {
+    background-color: #f0f2f5;
+}

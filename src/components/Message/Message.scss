@@ -1,0 +1,130 @@
+.message-wrapper {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #e0e0e0;
+}
+
+.message-header {
+    background-color: #f0f2f5;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+}
+
+.message-header-left {
+    width: 5vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 70%;
+        border-radius: 50%;
+        margin-left: 1rem;
+    }
+}
+
+.message-header-center {
+    flex-grow: 1;
+    font-size: 2.5vh;
+    font-weight: 400;
+    color: #555555;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+
+    h4 {
+        font-size: 3vh;
+        color: #000000;
+        font-weight: 400;
+        margin-top: 0.7rem;
+        margin-bottom: -0.1rem;
+    }
+}
+
+.message-header-right {
+    width: 7vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    i {
+        width: 100%;
+    }
+
+}
+
+.message-body {
+    padding: 0 7vw ;
+    width: 100%;
+    height: calc(100vh - 20vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: scroll;
+    background-image: url('../../../public/image/bg-image.png');
+}
+
+
+
+
+
+
+.singleMessage-wrapper {
+    max-width: 50vh; 
+    min-height: 2vh;
+    padding: 0.5rem 0.7rem;
+    align-items: center; 
+    margin-bottom: 0.8rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    position: relative;
+    float: right;
+}
+  
+.singleMessage-wrapper::before {
+    content: '';
+    position: absolute;
+    visibility: visible;
+    top: 0px;
+    left: -10px;
+    border: 10px solid transparent;
+    border-top: 10px solid rgb(255, 255, 255);
+}
+
+
+.singleMessage-header {
+    width: 100%;
+    color: #f31f1f;
+}
+
+.singleMessage-body {
+    font-size: 0.9rem;
+}
+
+.message-footer {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #f0f2f5;
+    padding: 0.4rem 1.2rem;
+
+    i {
+        font-size: 4vh;
+        color: #3b3b3b;
+        margin-left: 0.5rem;
+    }
+
+    input {
+        flex-grow: 1;
+        border: none;
+        height: 80%;
+        border-radius: 0.5rem;
+        margin-left: 1rem;
+        margin-right: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
+}
