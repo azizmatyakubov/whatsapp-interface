@@ -1,6 +1,137 @@
+import NavBar from "../NavBar/NavBar";
+import { Container, Form } from "react-bootstrap";
+// import "../../components/Settings/Settings.css";
+import { useDispatch,useSelector } from "react-redux";
+import { changeUsername, changeAvatar, setPassword } from "../../redux/actions/userActions";
+
+
 const Settings =()=>{
 
-    return
+    /* this could be dynamic and just have REGISTER component */
+    const phoneNumber = useSelector((state) => state.user.phoneNumber);
+    const username = useSelector((state) => state.user.userName);
+    const avatar = useSelector((state) => state.user.avatar);
+    // const about = useSelector((state) => state.user.about);
+    const password = useSelector((state) => state.user.password);
+
+    const dispatch = useDispatch();
+
+      
+      
+        const handleSubmit = async (e) => {
+          e.preventDefault();
+      
+          let body = {
+            phoneNumber: phoneNumber,
+            password: password,
+            username: username,
+            avatar: avatar,
+            // about: about,
+          };
+
+
+        //   HERE "GET" to retrieve the user and fill states using redux
+
+        //add phoneNumber as a heading 
+
+          const response = await fetch(
+            "https://whatsapp-v1-api.herokuapp.com/users/account",
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+      
+              body: JSON.stringify(body),
+            }
+          );
+          if (response.status === 201) {
+            const data = await response.json();
+            window.location.href = "/chat";
+          }
+        };
+      
+        return (
+          <>
+            <NavBar />
+            <Container>
+              <div id="main-container2">
+                <div className="login">
+                  <div className="container">
+                    <div className="row">
+                      <Form className="formDir  text-center" onSubmit={handleSubmit}>
+                        <div
+                          id="imageContainer"
+                          className="col-md-6 mx-auto text-center"
+                        >
+                          <label for="Bfile">
+                            <div className="addImage">
+                              <img
+                                src={require("../../Data/plusM.jpg")}
+                                alt="add Images"
+                                className="plus"
+                              />
+                            </div>
+                          </label>
+                          <input id="Bfile" type="file" />
+                        </div>
+                        <div className="col-md-6 mx-auto  formContainer">
+                          <Form.Group
+                            className="formSize mb-3 "
+                            controlId="formBasicEmail"
+                          >
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control
+                              type="text"
+                              placeholder="Username"
+                              value={username}
+                              onChange={(e) => dispatch(changeUsername(e.target.value))}
+                            />
+                          </Form.Group>
+                          <Form.Group
+                            className="formSize mb-3 "
+                            controlId="formBasicEmail"
+                          >
+                            <Form.Label>Avatar</Form.Label>
+                            <Form.Control
+                              type="file"
+                              placeholder="Avatar"
+                              value={avatar}
+                              onChange={(e) => dispatch(changeAvatar(e.target.value))}
+                            />
+                          </Form.Group>
+      
+                          <Form.Group
+                            className=" formSize mb-3  "
+                            controlId="formBasicPassword"
+                          >
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                              type="password"
+                              placeholder="Password"
+                              value={password}
+                              onChange={(e) => dispatch(setPassword(e.target.value))}
+                            />
+                          </Form.Group>
+                          <Form.Group
+                            className="mb-3"
+                            controlId="formBasicCheckbox"
+                          ></Form.Group>
+      
+                          <button className="LoginButton" type="submit">
+                            Register
+                          </button>
+                        </div>
+                      </Form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Container>
+          </>
+        );
+
 }
 
-export default Settings;
+
+export default Settings

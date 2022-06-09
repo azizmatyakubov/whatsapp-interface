@@ -5,17 +5,18 @@ const userSlice = createSlice({
   initialState: {
     _id:"",
     phoneNumber:"",
-    userName: "",
-    avatar:"https://png.pngtree.com/png-vector/20210604/ourlarge/pngtree-gray-avatar-placeholder-png-image_3416697.jpg",
-    about:"",
+    username: "",
+    avatar:"",
+    // about:"",
     token:"",
+    password:"",
   },
   reducers: {
 
-    changeUserName: (state, action) => {
+    changeUsername: (state, action) => {
       return {
         ...state,
-        userName: action.payload,
+        username: action.payload,
       }
     },
 
@@ -26,19 +27,19 @@ const userSlice = createSlice({
       }
     },
 
-    changeAbout: (state, action) => {
+    changePassword: (state, action) => {
       return {
         ...state,
-        about: action.payload,
+        password: action.payload,
       }
     },
 
-    changeToken: (state, action) => {
-      return {
-        ...state,
-        token: action.payload,
-      }
-    },
+    // changeToken: (state, action) => {
+    //   return {
+    //     ...state,
+    //     token: action.payload,
+    //   }
+    // },
 
   },
 })
