@@ -5,8 +5,8 @@ import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 
 const UserChat = () => {
-  const isUser = chats._id;
   const [chats, setChats] = useState([]);
+  const isUser = chats._id;
 
   useEffect(() => {
     getChat();

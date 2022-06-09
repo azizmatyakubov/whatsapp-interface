@@ -5,6 +5,7 @@ const chatSlice = createSlice({
   initialState: {
     isNewChat:false,
     isSearchBarActive:false,
+    activeChatId: null,
   },
   reducers: {
 
@@ -22,8 +23,14 @@ const chatSlice = createSlice({
       }
     },
 
+    setActiveChatId: (state, action) => {
+      return {
+        ...state,
+        activeChatId: action.payload,
+      }
+    },
   },
 })
 
 export default chatSlice.reducer
-export const { changeisNewChat,changeisSearchBarActive } = chatSlice.actions
+export const { changeisNewChat,changeisSearchBarActive, setActiveChatId } = chatSlice.actions
