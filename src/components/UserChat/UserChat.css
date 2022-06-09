@@ -101,15 +101,29 @@
 
 .chat-message-user {
   background-color: white;
-  width: 20%;
-  height: 50px;
+  /* width: 20%;
+  height: 50px; */
   border-radius: 10px;
   margin: 25px;
+  max-width: 75%;
+  word-break: break-all;
+  padding: 10px;
 }
 
 .chat-message-other {
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(217, 253, 211);
   display: flex;
+  flex-wrap: wrap;
+
+  /* width: 20%;
+  height: 50px; */
+  border-radius: 10px;
+  margin: 25px;
+  max-width: 75%;
+  word-break: break-all;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
 }
 
 .chat-message-user {
@@ -125,4 +139,15 @@
 
 #chatBox {
   display: flex;
+}
+
+.chat-time-user {
+  padding-left: 14px;
+  padding-top: 12px;
+}
+.chat-time-other {
+  margin-left: auto;
+  margin-right: 0px;
+  margin-top: 12px;
+  padding-left: 10px;
 }

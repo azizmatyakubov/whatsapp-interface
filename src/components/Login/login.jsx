@@ -9,6 +9,18 @@ function Login() {
   const [telephone, setTelephone] = useState();
   const [password, setPassword] = useState();
 
+  const handleRegister = (e) => {
+    window.location.href = "/register";
+  };
+
+  const handleGoogleFailure = (response) => {
+    alert(response);
+  };
+
+  const handleGoogleLogin = (googleData) => {
+    console.log(googleData);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -33,6 +45,8 @@ function Login() {
 
       console.log(data);
       localStorage.setItem("token", data.accessToken);
+    } else {
+      alert("Invalid credentials");
     }
   };
 
@@ -66,11 +80,31 @@ function Login() {
                 className="mb-3"
                 controlId="formBasicCheckbox"
               ></Form.Group>
+              <div className="button-container">
+                <button className="LoginButton1" type="submit">
+                  Login
+                </button>
 
-              <button className="LoginButton" type="submit">
-                Login
-              </button>
+                <button
+                  className="LoginButton1"
+                  clientId={process.env.React_APP_GOOGLE_CLIENT_ID}
+                  buttonText="Login with Google"
+                  onSuccess={handleGoogleLogin}
+                  onFailure={handleGoogleFailure}
+                  cookiePolicy={"single_host_origin"}
+                >
+                  Google
+                </button>
+              </div>
             </Form>
+            <div className="register-container">
+              <a
+                id="a"
+                href="https://whatsapp-v1-api.herokuapp.com/users/googleLogin"
+              >
+                <button className="LoginButton2">Register</button>
+              </a>
+            </div>
           </div>
         </div>
       </Container>

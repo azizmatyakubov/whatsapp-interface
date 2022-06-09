@@ -5,7 +5,7 @@ import User from "../User/User.jsx";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+
 import { changeisNewChat } from "../../slices/chat/chatSlice";
 import "./ChatBox.css";
 import { useEffect } from "react";
@@ -13,14 +13,16 @@ import { useEffect } from "react";
 const Chat = () => {
   const isNewChat = useSelector((state) => state.chat.isNewChat);
   const dispatch = useDispatch();
-
-  const param = useParams();
-
   const [chats, setChats] = useState([]);
 
   useEffect(() => {
     getChat();
   }, []);
+
+  const handleLogOut = () => {
+    window.location.href = "/login";
+    localStorage.removeItem("token");
+  };
 
   const getChat = async () => {
     try {
@@ -98,7 +100,9 @@ const Chat = () => {
                         Starred messages
                       </Dropdown.Item>
                       <Dropdown.Item href="#/action-3">Settings</Dropdown.Item>
-                      <Dropdown.Item href="#/action-4">Log out</Dropdown.Item>
+                      <Dropdown.Item href="#/action-4" onClick={handleLogOut}>
+                        Log out
+                      </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
@@ -123,14 +127,13 @@ const Chat = () => {
               </div>
             </div>
             <div className="list">
-              <User />
               {chats.map((chat) => {
                 console.log(chat);
                 return (
                   <User
                     key={chat._id}
                     id={chat._id}
-                    name={chat.name}
+                    name={chat.members[0].username}
                     lastMessage={
                       chat.messages.length
                         ? chat.messages[chat.messages.length - 1].text

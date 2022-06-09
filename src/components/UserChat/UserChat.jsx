@@ -1,12 +1,42 @@
 import React, { useState } from "react";
-
+import { useEffect } from "react";
 import "./UserChat.css";
 import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 
 const UserChat = () => {
-  const [isUser, setIsUser] = useState(true);
+  const isUser = chats._id;
+  const [chats, setChats] = useState([]);
+
+  useEffect(() => {
+    getChat();
+  }, []);
+
+  const getChat = async () => {
+    try {
+      const res = await fetch("https://whatsapp-v1-api.herokuapp.com/chats", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }),
+        data = await res.json();
+      if (data) {
+        setChats(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   //messages--------------------------
+
+  // I was not able to retrieve the data trought redux store, the idea is to retrive the data,
+  // it needs to be mapped at line 86.
+  // this same map need to be applied to data list, that display the amount of user.
+  //as mow there I couldn't find  a way to iplemet a new chat window onClick on a new user.
+
   return (
     <>
       <div className="User-Chat">
@@ -19,8 +49,14 @@ const UserChat = () => {
             />
           </div>
           <div className="chat-username">
-            <h6 id="chat-username">Gioacco</h6>
-            <p id="chat-connection">Last seen today at 12:43 pm</p>
+            {chats.map((chat) => {
+              return (
+                <>
+                  <h6 id="chat-username"> {chat.members[0].username}</h6>
+                  <p id="chat-connection">{chat.members[0].lastOnline}</p>
+                </>
+              );
+            })}
           </div>
           <div className="chat-header-icons col-1">
             <svg
@@ -47,17 +83,24 @@ const UserChat = () => {
         </div>
         <div className="chat-body">
           <Container id="chatBox">
-            {isUser ? (
-              <div className="chat-message-user">
-                <h5 className="chat-message">Usaaaaaaaaaaaaaaaaaaaaaaaaaer</h5>
-              </div>
-            ) : (
-              <div className="chat-message-other">
-                <h5 className="chat-message">
-                  loaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                </h5>
-              </div>
-            )}
+            {/* //conver time with moment .js for time of messages  */}
+            return (
+            <>
+              {isUser ? (
+                <div className="chat-message-user">
+                  <h5 className="chat-message">asd</h5>
+                  <span className="chat-time-other">6:00pm</span>
+                </div>
+              ) : (
+                <div className="chat-message-other">
+                  <h5 className="chat-message">
+                    loaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  </h5>
+                  <span className="chat-time-user">8:34pm</span>
+                </div>
+              )}
+            </>
+            );
           </Container>
         </div>
         <div className="chat-bottom">

@@ -30,7 +30,7 @@ function Register() {
     );
     if (response.status === 201) {
       const data = await response.json();
-      window.location.href = "/login";
+      window.location.href = "/chat";
     }
   };
 
