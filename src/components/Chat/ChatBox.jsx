@@ -10,16 +10,35 @@ import { changeisNewChat } from "../../slices/chat/chatSlice";
 import "./ChatBox.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { io } from "socket.io-client";
+import { useMemo } from "react";
 const Chat = () => {
   const isNewChat = useSelector((state) => state.chat.isNewChat);
   const dispatch = useDispatch();
   const [chats, setChats] = useState([]);
 
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  const token = localStorage.getItem("token");
+
+  const socket = useMemo(() => {
+    const currentSocket =
+      !!token &&
+      io(process.env.REACT_APP_BE_DOMAIN, {
+        transports: ["websocket"],
+        auth: { token },
+      });
+    console.log({ currentSocket });
+    return currentSocket;
+  }, [token]);
 
   useEffect(() => {
+    socket.on("connect", () => {
+      console.log("connection with server stablish");
+    });
+    socket.on("outgoing-msg", () => {
+      console.log("message sent");
+    });
     getChat();
   }, []);
 
@@ -40,7 +59,6 @@ const Chat = () => {
         data = await res.json();
       if (data) {
         setChats(data);
-
       }
     } catch (error) {
       console.log(error);
@@ -104,7 +122,12 @@ const Chat = () => {
                       <Dropdown.Item href="#/action-2">
                         Starred messages
                       </Dropdown.Item>
-                      <Dropdown.Item href="#/action-3" onClick={()=>navigate("/settings")}>Settings</Dropdown.Item>
+                      <Dropdown.Item
+                        href="#/action-3"
+                        onClick={() => navigate("/settings")}
+                      >
+                        Settings
+                      </Dropdown.Item>
                       <Dropdown.Item href="#/action-4" onClick={handleLogOut}>
                         Log out
                       </Dropdown.Item>
@@ -133,10 +156,7 @@ const Chat = () => {
             </div>
             <div className="list">
               {chats.map((chat) => {
-<<<<<<< HEAD
-=======
                 // console.log(chat);
->>>>>>> 5bd3ca057901fed360c0ef61eb7c8dda3f5776b7
                 return (
                   <User
                     key={chat._id}
