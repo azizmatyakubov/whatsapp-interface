@@ -36,6 +36,7 @@ const Chat = () => {
         data = await res.json();
       if (data) {
         setChats(data);
+
       }
     } catch (error) {
       console.log(error);
@@ -128,11 +129,10 @@ const Chat = () => {
             </div>
             <div className="list">
               {chats.map((chat) => {
-                console.log(chat);
                 return (
                   <User
                     key={chat._id}
-                    id={chat._id}
+                    chatId={chat._id}
                     name={chat.members[0].username}
                     lastMessage={
                       chat.messages.length

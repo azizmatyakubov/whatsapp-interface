@@ -1,34 +1,44 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./UserChat.css";
 import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 
 const UserChat = () => {
-  const [chats, setChats] = useState([]);
-  const isUser = chats._id;
+  const [chat, setChat] = useState(null);
+  const isUser = chat?._id;
+
+  const chatId = useSelector((state) => state.chat.activeChatId);
+  const user = useSelector((state) => state.user);
+
+  const getChat = useCallback(async () => {
+    if (chatId) {
+      try {
+        const res = await fetch(
+            `https://whatsapp-v1-api.herokuapp.com/chats/${chatId}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          ),
+          data = await res.json();
+        if (data) {
+          setChat(data);
+          // console.log(chats);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, [chatId]);
 
   useEffect(() => {
     getChat();
-  }, []);
-
-  const getChat = async () => {
-    try {
-      const res = await fetch("https://whatsapp-v1-api.herokuapp.com/chats", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }),
-        data = await res.json();
-      if (data) {
-        setChats(data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  }, [getChat]);
 
   //messages--------------------------
 
@@ -36,6 +46,8 @@ const UserChat = () => {
   // it needs to be mapped at line 86.
   // this same map need to be applied to data list, that display the amount of user.
   //as mow there I couldn't find  a way to iplemet a new chat window onClick on a new user.
+
+  console.log(chat);
 
   return (
     <>
@@ -49,14 +61,23 @@ const UserChat = () => {
             />
           </div>
           <div className="chat-username">
-            {chats.map((chat) => {
-              return (
-                <>
-                  <h6 id="chat-username"> {chat.members[0].username}</h6>
-                  <p id="chat-connection">{chat.members[0].lastOnline}</p>
-                </>
-              );
-            })}
+            {chat && (
+              <>
+                <h6 id="chat-username">
+                  {" "}
+                  {
+                    chat.members.find((member) => member._id !== user._id)
+                      .username
+                  }
+                </h6>
+                <p id="chat-connection">
+                  {
+                    chat.members.find((member) => member._id !== user._id)
+                      .lastOnline
+                  }
+                </p>
+              </>
+            )}
           </div>
           <div className="chat-header-icons col-1">
             <svg
