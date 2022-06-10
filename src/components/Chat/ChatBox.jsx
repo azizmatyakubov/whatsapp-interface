@@ -9,11 +9,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeisNewChat } from "../../slices/chat/chatSlice";
 import "./ChatBox.css";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Chat = () => {
   const isNewChat = useSelector((state) => state.chat.isNewChat);
   const dispatch = useDispatch();
   const [chats, setChats] = useState([]);
+
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     getChat();
@@ -100,7 +104,7 @@ const Chat = () => {
                       <Dropdown.Item href="#/action-2">
                         Starred messages
                       </Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Settings</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3" onClick={()=>navigate("/settings")}>Settings</Dropdown.Item>
                       <Dropdown.Item href="#/action-4" onClick={handleLogOut}>
                         Log out
                       </Dropdown.Item>
@@ -129,6 +133,10 @@ const Chat = () => {
             </div>
             <div className="list">
               {chats.map((chat) => {
+<<<<<<< HEAD
+=======
+                // console.log(chat);
+>>>>>>> 5bd3ca057901fed360c0ef61eb7c8dda3f5776b7
                 return (
                   <User
                     key={chat._id}

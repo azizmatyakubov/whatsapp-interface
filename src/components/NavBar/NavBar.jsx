@@ -2,9 +2,15 @@ import React from "react";
 import "./NavBar.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Container, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-class NavBar extends React.Component {
-  render() {
+
+
+
+ const NavBar=()=>{
+
+  const navigate = useNavigate()
+ 
     return (
       <div id="MainNav">
         <nav id="NavBar" className="navbar navbar-expand-lg ">
@@ -15,6 +21,8 @@ class NavBar extends React.Component {
                   className="logo"
                   src={require("../../Data/whatsapp-logo.png")}
                   alt="logo"
+                  onClick={() => navigate("/login")}
+                  style={{ cursor: "pointer" }}
                 />
 
                 <p id="text" className="navbar-brand text-light ">
@@ -26,7 +34,7 @@ class NavBar extends React.Component {
         </nav>
       </div>
     );
-  }
+  
 }
 
 export default NavBar;
